@@ -252,8 +252,8 @@ juego no se ha ganado, entonces el tablero no es ganable.
 Como se puede ver, este algoritmo afecta al parámetro inicial, por lo que es
 necesario pasarle una copia del tablero para que el jugador no gane
 automáticamente. Esta es una decisión de diseño intencionada; el mayor costo de
-la función suele ser hecho de requerir una copia profunda de `Minesweeper`, por
-lo que se requiere que el usuario lo copie manualmente. De esta forma no hay
+la función suele ser el hecho de requerir una copia profunda de `Minesweeper`,
+por lo que se requiere que el usuario lo copie manualmente. De esta forma no hay
 sorpresas. Además, si el usuario desea mostrar el tablero ganado, puede hacerlo
 pasando un `Minesweeper` sin copiarlo.
 
@@ -327,7 +327,7 @@ def get_starters() -> Tuple[int, int]:
 
 def ask_int(s: str) -> int:
     """
-        Imprime s y devuelva un entero que pide por consola al usuario.
+        Imprime s y devuelve un entero que pide por consola al usuario.
     """
     try:
         return int(input(s))
@@ -343,10 +343,10 @@ En main, `print_prompt` efectivamente es un input posicionado, nada especial.
 Ahora veamos `get_starters`. El mismo utiliza `ask_int`, que pide un ingreso al
 usuario hasta que este sea un número entero. El utilizar una función como
 parametro permite que el prompt imprima fácilmente lo que el usuario desee, y
-exija también lo que el usuario desee. De esta forma, se pueden utilizares
+exija también lo que el usuario desee. De esta forma, se pueden utilizar
 funciones de impresión estándares sin tener que readaptarlas a este formato de
-impresión. Y, como bonus, al usar la declaración de genéricos, el *Protocolo
-de Servidor de Lenguaje* puede entender con exactitud el tipo de la función,
+impresión. Y, como bonus, al usar la declaración de genéricos, el *Protocolo de
+Servidor de Lenguaje* puede entender con exactitud el tipo de la función,
 incluso cuando este puede ser cualquiera.
 
 
@@ -417,7 +417,8 @@ y para poder aceptar las acciones como parametro mas ninguna otra posibilidad en
 
 El método `act` verifica que las coordenadas para cada acción sean válidas, en
 cuyo caso las ejecuta. El propósito de la mayoría de funciones es evidente con
-excepción de una,`self.discover_neighbours`, que contiene una animación. Veamos.
+excepción de una, `self.discover_neighbours`, que contiene una animación.
+Veamos.
 
 ```python
     def discover_neighbours(self, row: int, column: int, animated=True):
@@ -518,7 +519,7 @@ diseñado específicamente para `JetBrainsMono Nerd Font`, pero cualquier Nerd
 Font monoespaciada sin ligaturas debería funcionar.
 
 > ATENCIÓN: El programa no espera redistribución del tamaño de ventana, y asume
-espacio igual a mayor a dos tableros, tanto vertical como horizontalmente.
+espacio igual o mayor a dos tableros, tanto vertical como horizontalmente.
 
 ### Ejecución
 
