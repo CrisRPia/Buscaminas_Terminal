@@ -139,12 +139,12 @@ def get_starters() -> Tuple[int, int]:
 
 if __name__ == "__main__":
     try:
+        ANSICursor.clear_screen()
         # Set legacy mode
         if Renderer.print_prompt(
             lambda: input("Modo de legado (Enter vacío para no aplicarlo): "),
         ):
             icons.legacy = True
-        ANSICursor.clear_screen()
 
         # Main loop
         main()

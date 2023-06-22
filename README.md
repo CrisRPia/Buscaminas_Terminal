@@ -1,5 +1,7 @@
 # Buscaminas de Cristian Rodríguez
 
+Repositorio de git: https://github.com/CrisRPia/Buscaminas_Terminal
+
 ## Análisis del problema
 En esta sección se detallarán los objetivos del programa.
 
