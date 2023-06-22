@@ -130,10 +130,17 @@ def get_starters() -> Tuple[int, int]:
         size = Renderer.print_prompt(
             lambda: ask_int("Tamaño del tablero (de 3 a 10): ")
         )
+    ANSICursor.clear_screen()
     while mines < 1 or mines > size ** 2 - 1:
         mines = Renderer.print_prompt(
-            lambda: ask_int(f"Cantidad de minas (de 1 a {size ** 2 - 1}): ")
+            lambda: ask_int(f"Cantidad de minas (de 1 a {size ** 2 - 1}" +
+
+                            # 21% is about what's reasonable for a hard game;
+                            # we add one because on a 3x3 board recommending
+                            # one mine is ridiculous
+                            f", se recomiendan {int(size ** 2 * 0.2) + 1}): ")
         )
+    ANSICursor.clear_screen()
     return size, mines
 
 
@@ -151,6 +158,7 @@ if __name__ == "__main__":
         while True:
             if not input("¿Jugar nuevamente (Enter vacío para 'sí')? "):
                 main()
-
+            else:
+                break
     except KeyboardInterrupt:
         print("\n\n¡Hasta luego!")
