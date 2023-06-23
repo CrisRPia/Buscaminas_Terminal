@@ -508,7 +508,7 @@ minas, se ha de buscar las pocas celdas seguras.
 
 ### Requisitos
 
-Para ejecutar el juego deberá tener python 3.1 en adelante instalado junto con
+Para ejecutar el juego deberá tener python 3.10 en adelante instalado junto con
 todas sus librerías estándar (que suelen venir junto a la instalación normal).
 Además, deberá ejecutarlo desde una terminal que sea compatible con el código
 ANSI y tenga una fuente monoespaciada. Este programa ya fué probado en Alacritty
@@ -589,6 +589,9 @@ Estos son los comandos que tiene disponible.
 De no poder generar un tablero justo, considere ejecutar `help`. Este comando
 le dará suficiente información para poder inferir alguna o algunas celda o
 celdas.
+
+Finalmente, al terminar una partida se le preguntará si desea continuar jugando.
+En caso negativo, ingrese algún texto y presione Enter.
 
 ## Conclusiones del trabajo
 

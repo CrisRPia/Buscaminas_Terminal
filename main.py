@@ -36,13 +36,11 @@ Posibles acciones:
 
 def main():
     global game
-    warning = ""
 
     # Set screen
     ANSICursor.show_cursor()
     ANSICursor.clear_screen()
     ANSICursor.move_cursor(0, 0)
-
 
     # Set game
     size, mines = get_starters()
@@ -89,7 +87,6 @@ def main():
                     Renderer.print_board(game.board)
                     continue
                 if move[0] == Action.HELP.value:
-                    # TODO
                     if game.help():
                         warning = "Es posible inferir un movimiento seguro."
                     else:
