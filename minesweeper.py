@@ -107,7 +107,8 @@ class Minesweeper:
     def show_board(self):
         for row in self.board:
             for cell in row:
-                cell.discovered = True
+                if cell.is_mine:
+                    cell.discovered = True
 
 
     def act(self, action: Action, row: int, column: int) -> str:
