@@ -13,6 +13,9 @@ def calculate_spacing(i: int) -> str:
     return ' ' * (1 + COLUMN_WIDTH - len(str(i)))
 
 
+old_terminal_size = None
+
+
 class Renderer():
     """
         Renders both the board and instructions onto the screen.
@@ -23,12 +26,19 @@ class Renderer():
         """
             Prints the board centered on the screen. It may or may not clear
             the prompt, based on the clear_prompt parameter.
+
+            If the terminal size has changed, it erases the screen so that the
+            rendering is not broken.
         """
         size = len(board)
         spacing = (" " * COLUMN_WIDTH)
 
         # Clear screen and reset cursor
+        global old_terminal_size
         term_size = ANSICursor.get_terminal_size()
+        if old_terminal_size != term_size:
+            ANSICursor.clear_screen()
+            old_terminal_size = term_size
         ANSICursor.move_cursor(term_size.lines // 2 - size + 1,
                                term_size.columns // 2 -
                                (size * 2 + 2 + len(spacing)) // 2)
