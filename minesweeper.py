@@ -122,6 +122,8 @@ class Minesweeper:
                 warning = ("No se puede investigar una celda con bandera. " +
                            f"Ejecuta flag {column + 1} {row + 1} para desmarcarla.")
                 return warning
+            if cell.discovered:
+                return f"¡La celda {column + 1} {row + 1} ya está descubierta!"
             cell.discovered = True
             if cell.value == 0:
                 self.discover_neighbours(row, column)
@@ -150,7 +152,7 @@ class Minesweeper:
                     return ""
                 self.clear_safes(row, column)
             else:
-                return "Celda inválida"
+                return f"Celda {column + 1} {row + 1} inválida para expansión."
         return ""
 
 
@@ -290,6 +292,7 @@ class Minesweeper:
                     continue
                 cell.discovered = True
                 if cell.value == 0:
+                    time.sleep(0.03)
                     self.discover_neighbours(r, c)
 
 

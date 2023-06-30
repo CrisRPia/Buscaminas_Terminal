@@ -28,7 +28,8 @@ class Renderer():
             the prompt, based on the clear_prompt parameter.
 
             If the terminal size has changed, it erases the screen so that the
-            rendering is not broken.
+            rendering is not broken. Therefore, everything else should be
+            printed AFTER printing the board.
         """
         size = len(board)
         spacing = (" " * COLUMN_WIDTH)

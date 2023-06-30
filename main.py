@@ -76,9 +76,9 @@ def main():
                 warning=warning
             ).split()
             ANSICursor.hide_cursor()
-            print()
 
             # Call each possible action
+            inp = ""
             try:
                 if move[0] == Action.MAN.value:
                     # The manual must be rendered on a separate page
@@ -112,9 +112,9 @@ def main():
                     break
                 raise NameError
             except Exception as e:
-                if not isinstance(e, NameError):
-                    print(e)
-                print("Sintaxis inválida")
+                if isinstance(e, KeyboardInterrupt):
+                    raise e
+                warning=f"Sintáxis inválida ({' '.join(move)})."
         ANSICursor.show_cursor()
 
 
@@ -157,5 +157,6 @@ if __name__ == "__main__":
                 main()
             else:
                 break
-    except KeyboardInterrupt:
+    except:
+        ANSICursor.show_cursor()
         print("\n\n¡Hasta luego!")
